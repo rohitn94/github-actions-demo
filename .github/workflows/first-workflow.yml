@@ -1,0 +1,10 @@
+ name: First Worflow
+ on: push
+ jobs:
+    first_job:
+        runs-on: ubuntu-latest
+        steps:
+        - name: Demo Step
+          run: echo "Wecloem to github actions"
+
+
