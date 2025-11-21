@@ -14,7 +14,7 @@
           run: ls
          
         - name: Print Readme
-          run: car README.md
+          run: cat README.md
 
 
 
