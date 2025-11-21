@@ -1,9 +1,9 @@
 name: Second Workflow
 on: push
- jobs:
+jobs:
     second-job:
         run-on: ubuntu-latest
         steps:
             - name: readme steps
             run: echo "this is the 2nd steps"
-            
+
