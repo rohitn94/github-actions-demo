@@ -7,4 +7,14 @@
         - name: Demo Step
           run: echo "Wecloem to github actions"
 
+        - name: Checkout Repo
+          run: actions/checkout@v5
+
+        - name: list files
+          run: ls
+         
+        - name: Print Readme
+          run: car README.md
+
+
 
