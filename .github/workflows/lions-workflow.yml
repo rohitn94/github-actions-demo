@@ -1,0 +1,41 @@
+name: lions-workflow
+on: push
+jobs:
+    job_1:
+        runs-on: ubuntu-latest
+        steps:
+            - name: install cowsay
+            run: sudo apt-get install cowsay -y
+
+            -name: create lion
+            run: cowsay -f lion "eating meat" >> lion.txt
+
+            -name: upload artifact
+            users: action/upload-artifact@v4
+            with: 
+                name: lion-file
+                path: lion.txt
+
+    job_2:
+        needs: job_1
+        runs-on: ubuntu-latest
+        steps:
+            -name: wait for 10S
+            run: sleep 10
+
+            -name: download artifact
+            run: action/download-artifact@v5
+            with:
+                name: lion-file
+                
+            -name: check if lion has arrived
+            run: grep -i "eat" lion.txt
+
+    job_3:
+        needs: job_2
+        runs-on: ubuntu-latest
+        steps:
+            -name: Call lion
+            run: cat lion.txt
+
+            
