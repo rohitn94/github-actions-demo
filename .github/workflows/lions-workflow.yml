@@ -8,14 +8,14 @@ jobs:
         - name: install cowsay
           run: sudo apt-get install cowsay -y
 
-        - name: create lion
-          run: cowsay -f lion "eating food" >> lion.txt
+        - name: create dragon
+          run: cowsay -f dragon "eating food" >> dragon.txt
 
         - name: Upload artifact
           uses: actions/upload-artifact@v4
           with: 
-             name: lion-file
-             path: lion.txt
+             name: dragon-file
+             path: dragon.txt
 
     job_2:
         needs: job_1
@@ -27,16 +27,16 @@ jobs:
             - name: download artifact
               uses: action/download-artifact@v5
               with:
-                name: lion-file
+                name: dragon-file
                 
-            - name: check if lion has arrived
-              run: grep -i "food" lion.txt
+            - name: check if dragon has arrived
+              run: grep -i "food" dragon.txt
 
     job_3:
         needs: job_2
         runs-on: ubuntu-latest
         steps:
-            - name: Call lion
-              run: cat lion.txt
+            - name: Call dragon
+              run: cat dragon.txt
 
 
