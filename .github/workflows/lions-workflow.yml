@@ -9,7 +9,7 @@ jobs:
           run: sudo apt-get install cowsay -y
 
         - name: create dragon
-          run: cowsay -f dragon "eating food" >> dragon.txt
+          run: cowsay -f dragon "I am breathing fire" >> dragon.txt
 
         - name: Upload artifact
           uses: actions/upload-artifact@v4
@@ -30,7 +30,7 @@ jobs:
                 name: dragon-file
                 
             - name: check if dragon has arrived
-              run: grep -i "food" dragon.txt
+              run: grep -i "fire" dragon.txt
 
     job_3:
         needs: job_2
