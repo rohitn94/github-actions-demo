@@ -9,7 +9,7 @@ jobs:
           run: sudo apt-get install cowsay -y
 
         - name: create lion
-          run: cowsay -f lion "eating meat" >> lion.txt
+          run: cowsay -f lion "eating food" >> lion.txt
 
         - name: Upload artifact
           uses: actions/upload-artifact@v4
@@ -30,7 +30,7 @@ jobs:
                 name: lion-file
                 
             - name: check if lion has arrived
-              run: grep -i "eat" lion.txt
+              run: grep -i "food" lion.txt
 
     job_3:
         needs: job_2
